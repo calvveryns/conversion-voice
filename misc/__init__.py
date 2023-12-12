@@ -1,0 +1,1 @@
+from misc.config import get_config
