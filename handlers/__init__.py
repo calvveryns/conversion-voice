@@ -1,1 +1,1 @@
-from handlers.handlers import start_bot
+from handlers.handlers import start_bot, voice_handler, video_handler
