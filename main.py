@@ -1,4 +1,5 @@
 import logging
+import sys
 
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
 
@@ -13,6 +14,14 @@ logging.basicConfig(
 
 
 def main():
+    # Try to open the config file
+    try:
+        with open('config.ini', 'r'):
+            pass
+    except FileNotFoundError:
+        print('The config file is missing')
+        sys.exit(1)
+
     # Build the Telegram bot application
     application = ApplicationBuilder().token(get_config('config.ini')).build()
 
