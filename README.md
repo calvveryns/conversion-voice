@@ -37,3 +37,19 @@ FOLDER_ID = '<ID>'
 ```
 python main.py
 ```
+
+# Запуск при помощи Docker
+Для начала сборки и запуска, создайте файл **docker-compose.yml** и укажите следующие параметры:
+```yml
+version: '3'
+
+services:
+  conversion-voice-bot:
+    container_name: conversion-voice-bot
+    working_dir: /app
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "python main.py"
+```
